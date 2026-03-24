@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Darts Score</title>
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="title">Darts Score</div>
+        <button
+          class="btn ghost"
+          id="menuBtn"
+        >
+          Menu
+        </button>
+      </div>
+
+      <!-- MAIN MENU -->
+      <div
+        id="menuView"
+        class="setup"
+      >
+        <div class="card">
+          <div
+            class="title"
+            style="margin-bottom: 14px"
+          >
+            Choose game mode
+          </div>
+
+          <div
+            class="grid"
+            style="gap: 10px"
+          >
+            <button
+              class="btn primary"
+              id="open501Btn"
+              style="width: 100%; padding: 16px; font-size: 18px"
+            >
+              Classic darts
+            </button>
+
+            <button
+              class="btn primary"
+              id="openAroundBtn"
+              style="width: 100%; padding: 16px; font-size: 18px"
+            >
+              Around the Board
+            </button>
+          </div>
+
+          <div style="height: 10px"></div>
+          <div class="note">Choose which darts game you want to play.</div>
+        </div>
+      </div>
+
+      <!-- SETUP -->
+      <div
+        id="setupView"
+        class="setup hidden"
+      >
+        <div class="card">
+          <div class="two">
+            <div>
+              <label>Start score</label>
+              <select id="startScore">
+                <option value="301">301</option>
+                <option
+                  value="501"
+                  selected
+                >
+                  501
+                </option>
+                <option value="701">701</option>
+              </select>
+            </div>
+            <div>
+              <label>First to (legs)</label>
+              <input
+                id="firstTo"
+                type="number"
+                min="1"
+                max="25"
+                value="3"
+              />
+            </div>
+          </div>
+
+          <div style="height: 10px"></div>
+
+          <label>Mängijad (1–4)</label>
+          <div
+            class="players"
+            id="playerInputs"
+          ></div>
+
+          <div style="height: 10px"></div>
+          <button
+            class="btn primary"
+            id="startBtn"
+            style="width: 100%; padding: 16px; font-size: 18px"
+          >
+            START
+          </button>
+          <div style="height: 8px"></div>
+        </div>
+      </div>
+
+      <!-- GAME -->
+      <div
+        id="gameView"
+        class="hidden"
+      >
+        <div class="grid">
+          <div
+            id="playersArea"
+            class="grid"
+            style="grid-template-columns: 1fr; gap: 12px"
+          ></div>
+
+          <div class="card">
+            <label>Current input (0–180)</label>
+            <input
+              id="scoreInput"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              placeholder="Sisesta punktid"
+            />
+            <div
+              class="pad"
+              id="pad"
+            ></div>
+
+            <div class="footerRow">
+              <button
+                class="btn danger"
+                id="bustBtn"
+              >
+                BUST
+              </button>
+              <button
+                class="btn"
+                id="undoBtn"
+              >
+                UNDO
+              </button>
+              <button
+                class="btn primary"
+                id="doneBtn"
+              >
+                DONE
+              </button>
+            </div>
+
+            <div style="height: 8px"></div>
+          </div>
+        </div>
+      </div>
+      <!-- AROUND THE BOARD -->
+      <div
+        id="aroundView"
+        class="hidden"
+      >
+        <div class="grid">
+          <div class="card">
+            <div
+              class="title"
+              style="margin-bottom: 10px"
+            >
+              Around the Board
+            </div>
+
+            <div
+              id="aroundTimer"
+              class="aroundTimer"
+            >
+              00:00
+            </div>
+
+            <div
+              id="aroundTargets"
+              class="aroundTargets"
+            ></div>
+
+            <div class="footerRow">
+              <button
+                class="btn primary"
+                id="aroundStartBtn"
+              >
+                Start
+              </button>
+              <button
+                class="btn"
+                id="aroundResetBtn"
+              >
+                Reset
+              </button>
+            </div>
+
+            <div style="height: 8px"></div>
+            <div class="note">
+              Hit the numbers in order: 1–20, then 25, then 50.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modalOverlay"
+      class="modalOverlay hidden"
+    >
+      <div
+        class="modalBox"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button
+          class="modalClose"
+          id="modalCloseBtn"
+          aria-label="Sulge popup"
+        >
+          ×
+        </button>
+        <h2
+          id="modalTitle"
+          class="modalTitle"
+        >
+          Teavitus
+        </h2>
+        <p
+          id="modalMessage"
+          class="modalMessage"
+        >
+          Sõnum siia
+        </p>
+
+        <div
+          class="modalActions"
+          id="modalActions"
+        >
+          <button
+            class="btn"
+            id="modalSecondaryBtn"
+          >
+            Sulge
+          </button>
+          <button
+            class="btn primary"
+            id="modalPrimaryBtn"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="scoreFlash"
+      class="scoreFlash hidden"
+      aria-hidden="true"
+    >
+      <div
+        id="scoreFlashValue"
+        class="scoreFlashValue"
+      >
+        180
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
