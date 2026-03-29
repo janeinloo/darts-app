@@ -426,43 +426,102 @@ select:focus {
   border-color: transparent;
 }
 
-@media (max-width: 640px){
-
-  .wrap{
+@media (max-width: 640px) {
+  .wrap {
     padding: 12px;
+    min-height: 100dvh;
   }
 
-  .players{
+  .topbar {
+    padding: 6px 0;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .two {
     grid-template-columns: 1fr;
   }
 
-  .two{
+  .players {
     grid-template-columns: 1fr;
   }
 
-  .remaining{
-    font-size: 52px;
+  .card {
+    padding: 10px;
   }
 
-  .pad{
+  .playerHead {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .playerHead .name {
+    font-size: 13px;
+  }
+
+  .remaining {
+    padding: 14px 10px;
+    font-size: 44px;
+  }
+
+  .hint {
+    font-size: 12px;
+    padding: 0 10px 10px;
+  }
+
+  .pad {
+    gap: 6px;
+  }
+
+  .key {
+    padding: 14px 0;
+    font-size: 18px;
+  }
+
+  .key.small {
+    font-size: 14px;
+  }
+
+  .footerRow {
     gap: 8px;
   }
 
-  .key{
-    padding: 16px 0;
-    font-size: 20px;
-  }
-
-  .aroundTargets{
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .aroundTimer{
-    font-size: 36px;
-  }
-
-  .btn{
+  .btn {
     padding: 12px;
     font-size: 16px;
   }
+
+  .aroundTargets {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .aroundTarget {
+    padding: 14px 8px;
+    font-size: 18px;
+  }
+
+  .aroundTimer {
+    font-size: 36px;
+    margin: 6px 0 14px;
+  }
+
+  .modalBox {
+    padding: 18px 14px 14px;
+  }
+
+  .modalTitle {
+    font-size: 20px;
+  }
+
+  .modalMessage {
+    font-size: 14px;
+  }
+}
+
+.key,
+.aroundTarget,
+.btn {
+  touch-action: manipulation;
 }

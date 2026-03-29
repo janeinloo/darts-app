@@ -380,7 +380,7 @@
     ) {
       openModal({
         title: "Invalid score",
-        message: "Sellist punktisummat ei ole võimalik kolme noolega visata.",
+        message: "This score is not possible with 3 darts. Please enter a valid score.",
         primaryText: "OK",
       })
       state.input = ""
