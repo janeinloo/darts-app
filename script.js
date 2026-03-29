@@ -123,34 +123,58 @@
   }
 
   function checkoutHint(rem) {
-    const map = {
-      170: "T20 T20 BULL",
-      167: "T20 T19 BULL",
-      164: "T20 T18 BULL",
-      161: "T20 T17 BULL",
-      160: "T20 T20 D20",
-      158: "T20 T20 D19",
-      156: "T20 T20 D18",
-      155: "T20 T19 D19",
-      154: "T20 T18 D20",
-      153: "T20 T19 D18",
-      152: "T20 T20 D16",
-      151: "T20 T17 D20",
-      150: "T20 T18 D18",
-      141: "T20 T19 D12",
-      100: "T20 D20",
-      80: "T20 D10",
-      60: "20 D20",
-      50: "10 D20 / BULL",
-      40: "D20",
-      32: "D16",
-      24: "D12",
-      16: "D8",
-      8: "D4",
-      2: "D1",
-    }
-    return map[rem] || (rem <= 170 ? "Checkout: vali tee double’isse" : "")
+  if (rem > 170 || rem < 2) return ""
+
+  const map = {
+    170: "T20 T20 BULL",
+    167: "T20 T19 BULL",
+    164: "T20 T18 BULL",
+    161: "T20 T17 BULL",
+
+    160: "T20 T20 D20",
+    158: "T20 T20 D19",
+    157: "T20 T19 D20",
+    156: "T20 T20 D18",
+    155: "T20 T19 D19",
+    154: "T20 T18 D20",
+    153: "T20 T19 D18",
+    152: "T20 T20 D16",
+    151: "T20 T17 D20",
+    150: "T20 T18 D18",
+    149: "T20 T19 D16",
+    148: "T20 T16 D20",
+    147: "T20 T17 D18",
+    146: "T20 T18 D16",
+    145: "T20 T15 D20",
+    144: "T20 T20 D12",
+    143: "T20 T17 D16",
+    142: "T20 T14 D20",
+    141: "T20 T19 D12",
+    140: "T20 T20 D10",
+
+    120: "T20 20 D20",
+    116: "T20 16 D20",
+    112: "T20 12 D20",
+    110: "T20 10 D20",
+    108: "T20 16 D16",
+    104: "T18 18 D16",
+    100: "T20 D20",
+
+    90: "T20 D15",
+    80: "T20 D10",
+    70: "T10 D20",
+    60: "20 D20",
+    50: "10 D20 / BULL",
   }
+
+  if (map[rem]) return map[rem]
+
+  if (rem <= 40 && rem % 2 === 0) {
+    return `D${rem / 2}`
+  }
+
+  return "No standard checkout – aim for a double"
+}
 
   function closeModal() {
     modalOverlay.classList.add("hidden")
