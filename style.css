@@ -9,6 +9,29 @@
   --danger: #d9534f;
   --dangerHover: #c9302c;
   --cardRadius: 16px;
+  --input-bg:#141820;
+  --input-border:#394152;
+  --flash-bg:rgba(10, 12, 18, 0.95);
+  --flash-text:#e8eef7;
+}
+
+body.light{
+  --bg:#f4f6f8;
+  --panel:#ffffff;
+  --panel2:#eef2f5;
+  --text:#17202a;
+  --muted:#5f6b7a;
+  --accent:#0f8f86;
+  --green:#18a558;
+  --danger:#d9534f;
+  --input-bg:#ffffff;
+  --input-border:#cfd8e3;
+  --flash-bg:rgba(244, 246, 248, 0.96);
+  --flash-text:#17202a;
+}
+
+body.light .key{
+  border-color:#cfd8e3;
 }
 
 * {
@@ -120,13 +143,13 @@ label {
 
 input,
 select {
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 12px;
-  border: 1px solid #394152;
-  background: #141820;
-  color: var(--text);
-  outline: none;
+  width:100%;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--input-border);
+  background:var(--input-bg);
+  color:var(--text);
+  outline:none;
   transition:
     border-color 0.12s ease,
     box-shadow 0.12s ease;
@@ -222,6 +245,7 @@ select:focus {
   padding: 18px 0;
   border-radius: 14px;
   background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.08);
   text-align: center;
   font-size: 22px;
   font-weight: 750;
@@ -365,7 +389,7 @@ select:focus {
   font-size: clamp(120px, 30vw, 320px);
   font-weight: 800;
   line-height: 1;
-  color: var(--text);
+  color: #ffffff;
   letter-spacing: 2px;
   transform: scale(0.96);
   transition: transform 0.25s ease;
@@ -426,6 +450,12 @@ select:focus {
   border-color: transparent;
 }
 
+.topActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 @media (max-width: 640px) {
   .wrap {
     padding: 12px;
@@ -434,6 +464,15 @@ select:focus {
 
   .topbar {
     padding: 6px 0;
+  }
+
+  .topActions {
+    gap: 6px;
+  }
+
+  .topActions .btn {
+    padding: 10px;
+    font-size: 14px;
   }
 
   .title {

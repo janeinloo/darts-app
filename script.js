@@ -49,6 +49,7 @@
   const aroundTargets = document.getElementById("aroundTargets")
   const aroundStartBtn = document.getElementById("aroundStartBtn")
   const aroundResetBtn = document.getElementById("aroundResetBtn")
+  const themeBtn = document.getElementById("themeBtn")
 
   // ---------- Setup UI ----------
   function buildPlayerInputs() {
@@ -115,7 +116,7 @@
 
   function avg3(p) {
     if (!p.darts) return 0
-    return (p.scored / p.darts) * 3
+    return (p.legScored / p.darts) * 3
   }
 
   function nextTurn() {
@@ -429,6 +430,7 @@
     cur.darts += 3
     cur.legDarts += 3
     cur.scored += points
+    cur.legScored += points
 
     showScoreFlash(points)
 
@@ -460,6 +462,7 @@
           state.players.forEach(p => {
             p.remaining = state.startScore
             p.legDarts = 0
+            p.legScored = 0
           })
           state.turn = 0
           state.input = ""
@@ -469,6 +472,7 @@
           state.players.forEach(p => {
             p.remaining = state.startScore
             p.legDarts = 0
+            p.legScored = 0
           })
           state.turn = 0
           state.input = ""
@@ -555,6 +559,7 @@
       darts: 0,
       scored: 0,
       legDarts: 0,
+      legScored: 0
     }))
     state.turn = 0
     state.input = ""
@@ -625,6 +630,13 @@
         resetAroundGame()
       },
     })
+  })
+
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light")
+
+    const isLight = document.body.classList.contains("light")
+    themeBtn.textContent = isLight ? "Dark" : "Light"
   })
 
   // ---------- Init ----------
